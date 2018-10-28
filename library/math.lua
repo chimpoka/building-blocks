@@ -1,4 +1,5 @@
 print("[LUALIB] load math module ...")
+local Vector2 = require("building-blocks/Vector2")
 
 function math.clamp(val, lower, upper)
     if(lower > upper) then lower, upper = upper, lower end
@@ -32,8 +33,8 @@ function math.rnd(lower, greater)
     return lower + math.random()  * (greater - lower);
 end
 
-function math.rndVec3(l, g)
-    return sq.math.vec3.new(math.rnd(l,g), math.rnd(l,g), math.rnd(l,g))
+function math.rndVec2(l, g)
+    return Vector2.new(math.rnd(l,g), math.rnd(l,g))
 end
 
 --function math.rndVec3(l, g)

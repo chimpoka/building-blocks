@@ -1,3 +1,5 @@
+print("[LUALIB] load Vector2 module ...")
+local Debug = require("building-blocks/Debug")
 local vec2 = {}
 
 function vec2.new(x, y)
@@ -44,9 +46,10 @@ function vec2.new(x, y)
 			x = a * b.X
 			y = a * b.Y
 		else
-			print("error: Vector2.Multiply has incorrect type")
-			print("("..type(a)..", "..type(b)..")\npossible overloads:")
-			print("(Vector2, Vector2)\n(number, Vector2)\n(Vector2, number)\n")
+			Debug.getInfo(3)
+			print("error: Vector2.Multiply has incorrect types\n")
+			print("("..type(a)..", "..type(b)..")\n")	--possible overloads:")
+			-- print("(Vector2, Vector2)\n(number, Vector2)\n(Vector2, number)\n")
 			return
 		end
 		return vec2.new(x, y)
@@ -61,9 +64,10 @@ function vec2.new(x, y)
 			x = a.X / b
 			y = a.Y / b
 		else
-			print("error: Vector2.Divide has incorrect type")
-			print("("..type(a)..", "..type(b)..")\npossible overloads:")
-			print("(Vector2, Vector2)\n(Vector2, number)\n")
+			Debug.getInfo(3)
+			print("error: Vector2.Divide has incorrect types\n")
+			print("("..type(a)..", "..type(b).."\n")	--\npossible overloads:")
+			-- print("(Vector2, Vector2)\n(Vector2, number)\n")
 			return
 		end
 		return vec2.new(x, y)
